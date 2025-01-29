@@ -1,1 +1,1 @@
-# copy-site
+# sentry-template
