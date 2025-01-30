@@ -1,0 +1,98 @@
+.account {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 1px;
+  position: relative;
+  margin: 0px;
+  padding: 0px 8px;
+
+  &-header {
+    position: relative;
+    padding: 0px 3px;
+
+    &-button {
+      display: flex;
+      align-items: flex-start;
+      cursor: pointer;
+      border: none;
+      padding: 0px;
+      background: none;
+      width: 100%;
+      outline: none;
+      &:hover {
+        .account-header-info-username {
+          color: #fff;
+        }
+      }
+    }
+
+    &-avatar {
+      position: relative;
+
+      &-icon {
+        display: inline-block;
+        border: none;
+        margin: 2px 12px 2px 0px;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 0px;
+        border-radius: 6px;
+        width: 32px;
+        height: 32px;
+        position: relative;
+        vertical-align: middle;
+
+        &-svg {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          border-radius: 3px;
+          user-select: none;
+          overflow: hidden;
+        }
+      }
+    }
+
+    &-info {
+      overflow-x: hidden;
+      text-align: left;
+
+      &-logo {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: auto;
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: rgb(255, 255, 255);
+        text-shadow: rgba(255, 255, 255, 0) 0px 0px 6px;
+        transition: text-shadow 0.15s linear;
+
+        &-icon {
+          width: 14px;
+          height: 14px;
+          fill: none;
+          stroke: currentcolor;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          stroke-width: calc(1.225px);
+          transform: translateY(-1px);
+        }
+      }
+
+      &-username {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: auto;
+        font-size: 14px;
+        line-height: 16px;
+        transition: color 0.15s linear;
+      }
+    }
+  }
+}

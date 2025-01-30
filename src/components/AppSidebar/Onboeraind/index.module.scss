@@ -1,0 +1,37 @@
+.boarding-container {
+  padding: 8px 16px;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 12px;
+  align-items: center;
+  transition: background 100ms;
+  &:hover {
+    background: rgba(255, 255, 255, 0.085);
+  }
+}
+
+.boarding-title {
+  transition: color 100ms;
+  font-size: 16px;
+  line-height: 16px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 2px;
+}
+
+.boarding-status {
+  transition: color 100ms;
+  font-size: 12px;
+  color: rgb(128, 112, 143);
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 6px;
+  align-items: center;
+
+  &-icon {
+    background: rgb(245, 84, 89);
+    border-radius: 50%;
+    height: 7px;
+    width: 7px;
+  }
+}
