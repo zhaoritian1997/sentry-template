@@ -1,0 +1,131 @@
+.performance-widget {
+  background: rgb(255, 255, 255);
+  border-radius: 6px;
+  border: 1px solid rgb(224, 220, 229);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+  
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+
+    &-title {
+      &-btn {
+        padding: 4px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      &-new {
+        position: relative;
+        top: -2px;
+        margin-left: 2px;
+
+        &-text {
+          display: inline-block;
+          min-width: 20px;
+          border-radius: 20px;
+          text-align: center;
+          color: rgb(255, 255, 255);
+          background: linear-gradient(90deg, rgb(60, 116, 221), rgb(43, 161, 133));
+          transition: background 100ms linear;
+          position: relative;
+          margin: 0px;
+          padding: 0px 6px;
+          line-height: 16px;
+          height: 16px;
+          font-weight: 400;
+          font-size: 11px;
+          vertical-align: middle;
+        }
+      }
+
+      &-collapse {
+        transform: rotate(180deg);
+        transition: all 0.3s ease-in-out;
+      }
+
+      &-collapse-active {
+        transform: rotate(0deg);
+      }
+    }
+
+    &-desc {
+      padding-left: 8px;
+      font-size: 14px;
+      color: rgb(128, 112, 143);
+    }
+
+    &-right {
+      &-view-all {
+        height: 32px;
+        text-transform: none;
+        font-weight: 600;
+        color: rgb(62, 52, 70);
+        font-size: 14px;
+      }
+    }
+  }
+
+  &-content {
+    padding: 8px 10px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.performance-widget-popover-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &-text {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &-icon {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      &-checked {
+        color: rgb(101, 89, 197);
+
+        &:hover {
+          background-color: rgba(101, 89, 197, 0.085);
+        }
+      }
+    }
+  }
+}

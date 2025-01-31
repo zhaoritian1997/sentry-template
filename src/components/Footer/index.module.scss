@@ -1,0 +1,47 @@
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: rgb(128, 112, 143);
+  font-size: 14px;
+  border-top: 1px solid rgb(224, 220, 229);
+  align-content: center;
+  padding: 16px 30px;
+  margin-top: auto;
+
+  &-links {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    align-items: center;
+    justify-self: flex-start;
+    gap: 16px;
+
+    &:last-child {
+      justify-self: flex-end;
+    }
+  }
+
+  &-link {
+    border-radius: 2px;
+    color: rgb(128, 112, 143);
+
+    &:hover {
+      color: rgb(37, 98, 212);
+    }
+  }
+
+  &-logo {
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    margin: 0px auto;
+    color: #80708f;
+
+    &:hover {
+      svg {
+        color: rgb(37, 98, 212);
+      }
+    }
+
+  }
+}

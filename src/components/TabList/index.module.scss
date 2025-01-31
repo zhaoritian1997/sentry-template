@@ -1,0 +1,109 @@
+.tab-list {
+  position: relative;
+
+  &-wrapper {
+    position: relative;
+    display: grid;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    flex-shrink: 0;
+    grid-auto-flow: column;
+    justify-content: start;
+    gap: 16px;
+    line-height: 1.4;
+  }
+
+  &-item {
+    font-size: 87.5%;
+    line-height: 1.4;
+    list-style-type: none;
+    box-sizing: border-box;
+    color: rgb(101, 89, 197);
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+      & {
+        color: rgb(43, 34, 51);
+        .tab-list-item-hover {
+          opacity: 0.085;
+        }
+      }
+    }
+
+    &-active {
+      color: rgb(101, 89, 197);
+      white-space: nowrap;
+      cursor: pointer;
+
+      .tab-list-item-wrapper {
+        color: rgb(101, 89, 197);
+      }
+
+      .tab-list-item-underline {
+        background: rgb(108, 95, 199);
+      }
+    }
+
+    &-wrapper {
+      color: currentcolor;
+      font-size: 14px;
+      line-height: 1.4;
+      list-style-type: none;
+      color: rgb(62, 52, 70);
+      white-space: nowrap;
+      cursor: pointer;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: calc(38px);
+      border-radius: 6px;
+      transform: translateY(1px);
+      padding: 6px 8px 12px;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    &-hover {
+      box-sizing: content-box;
+      border-radius: inherit;
+      border-style: inherit;
+      border-width: inherit;
+      border-image: inherit;
+      color: currentcolor;
+      background-color: currentcolor;
+      border-color: currentcolor;
+      pointer-events: none;
+      opacity: 0;
+      position: absolute;
+      width: auto;
+      height: auto;
+      transform: none;
+      inset: 0px 0px 6px;
+    }
+
+    &-div {
+      position: absolute;
+      inset: 0px 0px 6px;
+      pointer-events: none;
+      border-radius: inherit;
+      z-index: 0;
+      transition: box-shadow 0.1s ease-out;
+    }
+
+    &-underline {
+      position: absolute;
+      border-radius: 2px;
+      pointer-events: none;
+      background: transparent;
+      transition: background 0.1s ease-out;
+      width: calc(100% - 16px);
+      height: 3px;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

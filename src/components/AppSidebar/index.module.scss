@@ -231,3 +231,24 @@
     }
   }
 }
+
+.app-sidebar-link-tooltip-content {
+  padding: 8px 16px;
+  background-color: #fff;
+  color: #3e3449;
+  font-size: 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    transform: rotate(45deg) translateY(-50%);
+  }
+}

@@ -1,0 +1,20 @@
+.search-bar {
+  position: relative;
+
+  &-input {
+    height: 38px;
+    padding: 10px 12px 10px 38px;
+    border-color: rgb(224, 220, 229);
+
+    &:focus {
+      border-color: rgb(108, 95, 199)
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    left: 16.5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

@@ -10,6 +10,7 @@ import {
   SidebarFooter,
   SidebarHeader
 } from "@/components/ui/sidebar"
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip"
 import clsx from "clsx"
 import Account from "./Account"
 import Onboarding from "./Onboeraind"
@@ -180,14 +181,14 @@ export function AppSidebar() {
       toggleCollapseSubMenu(val.title)
     }
   }
-  function toggleCollapseSubMenu(val: string) {
+  const toggleCollapseSubMenu = (val: string) => {
     const selectedMenu = menus.flat().find(m => m.title === val)
     if (selectedMenu) {
       const newMenus = menus.map(item => item.map(m => m.title === val ? ({ ...m, isCollapse: !m.isCollapse }) : m))
       setMenus(newMenus)
     }
   }
-  function toggleCollapse() {
+  const toggleCollapse = () => {
     setIsCollapse(!isCollapse)
     toggleSidebar()
   }
@@ -204,32 +205,71 @@ export function AppSidebar() {
                 {item.map((m) => (
                   <SidebarMenuItem key={m.title} className={styles['app-sidebar-link']}>
                     <div className={styles['app-sidebar-link-container']}>
-                      <a href={m.url} className={
-                        clsx(styles['app-sidebar-link-a'],
-                          currentRoute === m.title && styles['app-sidebar-link-active']
-                        )
-                      }
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          changeRoute(m)
-                        }}
-                      >
-                        <span className={styles['app-sidebar-link-icon']} >
-                          <m.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === m.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
-                        </span>
-                        <span className={styles['app-sidebar-link-title']}>{m.title}</span>
-                        {m.children && <button className={clsx(styles['app-sidebar-link-collapse-button'],
-                          m.isCollapse && styles['app-sidebar-link-collapse-button-active']
-                        )}
+                      {isCollapse ? <Tooltip>
+                        <TooltipTrigger asChild >
+                          <a href={m.url}
+                            className={
+                              clsx(styles['app-sidebar-link-a'],
+                                isCollapse && styles['app-sidebar-link-a-title'],
+                                currentRoute === m.title && styles['app-sidebar-link-active']
+                              )
+                            }
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              changeRoute(m)
+                            }}
+                          >
+                            <span className={styles['app-sidebar-link-icon']} >
+                              <m.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === m.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
+                            </span>
+                            <span className={styles['app-sidebar-link-title']}>{m.title}</span>
+                            {m.children && <button className={clsx(styles['app-sidebar-link-collapse-button'],
+                              m.isCollapse && styles['app-sidebar-link-collapse-button-active']
+                            )}
+                              onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                                toggleCollapseSubMenu(m.title)
+                              }}>
+                              <CollapseSvg className={styles['app-sidebar-link-collapse-svg']} />
+                            </button>}
+                          </a>
+                        </TooltipTrigger>
+                        <TooltipContent side="right" className={styles['app-sidebar-link-tooltip-content']}
+                        >
+                          <p>{m.title}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                        : <a href={m.url}
+                          className={
+                            clsx(styles['app-sidebar-link-a'],
+                              isCollapse && styles['app-sidebar-link-a-title'],
+                              currentRoute === m.title && styles['app-sidebar-link-active']
+                            )
+                          }
                           onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
-                            toggleCollapseSubMenu(m.title)
-                          }}>
-                          <CollapseSvg className={styles['app-sidebar-link-collapse-svg']} />
-                        </button>}
-                      </a>
+                            changeRoute(m)
+                          }}
+                        >
+                          <span className={styles['app-sidebar-link-icon']} >
+                            <m.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === m.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
+                          </span>
+                          <span className={styles['app-sidebar-link-title']}>{m.title}</span>
+                          {m.children && <button className={clsx(styles['app-sidebar-link-collapse-button'],
+                            m.isCollapse && styles['app-sidebar-link-collapse-button-active']
+                          )}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              toggleCollapseSubMenu(m.title)
+                            }}>
+                            <CollapseSvg className={styles['app-sidebar-link-collapse-svg']} />
+                          </button>}
+                        </a>
+                      }
                       {!isCollapse && m.children && m.isCollapse && <div className={styles['app-sidebar-link-collapse-content']}>
                         {m.children.map((c) => (
                           <div key={c.title} className={clsx(styles['app-sidebar-link'],
@@ -279,13 +319,29 @@ export function AppSidebar() {
                       e.stopPropagation()
                       changeRoute(item)
                     }}>
-                    <a className={styles['app-sidebar-link-a']}
-                      href={item.url}>
-                      <span className={styles['app-sidebar-link-icon']} >
-                        <item.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === item.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
-                      </span>
-                      <span className={styles['app-sidebar-link-title']}>{item.title}</span>
-                    </a>
+                    {isCollapse ? <Tooltip>
+                      <TooltipTrigger asChild >
+                        <a className={styles['app-sidebar-link-a']}
+                          href={item.url}>
+                          <span className={styles['app-sidebar-link-icon']} >
+                            <item.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === item.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
+                          </span>
+                          <span className={styles['app-sidebar-link-title']}>{item.title}</span>
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent side="right" className={styles['app-sidebar-link-tooltip-content']}
+                      >
+                        <p>{item.title}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                      : <a className={styles['app-sidebar-link-a']}
+                        href={item.url}>
+                        <span className={styles['app-sidebar-link-icon']} >
+                          <item.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === item.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
+                        </span>
+                        <span className={styles['app-sidebar-link-title']}>{item.title}</span>
+                      </a>
+                    }
                   </div>
                 </SidebarMenuItem>
               ))}

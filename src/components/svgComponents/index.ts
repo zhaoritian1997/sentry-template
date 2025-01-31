@@ -2,7 +2,7 @@ import AlertsSvg from './AlertsSvg'
 import CollapseSvg from './CollapseSvg'
 import CronsSvg from './CronsSvg'
 import DashboardSvg from './DashboardsSvg'
-import ExclamationSvg  from './ExclamationSvg'
+import ExclamationSvg from './ExclamationSvg'
 import ExploreSvg from './ExploreSvg'
 import HelpSvg from './HelpSvg'
 import InsightsSvg from './InsightsSvg'
@@ -19,6 +19,10 @@ import UserSvg from './UserSvg'
 import StarFillSvg from './StarFillSvg'
 import StarOutlineSvg from './StarOutlineSvg'
 import ProgressRingSvg from './ProgressRingSvg'
+import QuestionSvg from './QuestionSvg'
+import LogoSvg from './LogoSvg'
+import PlusSvg from './PlusSvg'
+import CheckMarkSvg from './CheckMarkSvg'
 
 export {
   AlertsSvg,
@@ -41,5 +45,9 @@ export {
   UserSvg,
   StarFillSvg,
   StarOutlineSvg,
-  ProgressRingSvg
+  ProgressRingSvg,
+  QuestionSvg,
+  LogoSvg,
+  PlusSvg,
+  CheckMarkSvg
 }

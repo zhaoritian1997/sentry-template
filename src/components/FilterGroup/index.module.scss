@@ -1,0 +1,233 @@
+.filter-group {
+  display: flex;
+  position: relative;
+  border-radius: 6px;
+  height: 38px;
+  max-width: 100%;
+  width: max-content;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    pointer-events: none;
+    box-shadow: rgb(224, 220, 229) 0px 0px 0px 1px inset;
+    border-radius: 6px;
+  }
+
+  &-item {
+    min-width: 0px;
+    flex: 1 1 max-content;
+    position: relative;
+    width: max-content;
+    flex-shrink: 0;
+
+    &-button {
+      padding: 10px 12px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid transparent;
+      overflow: hidden;
+
+      &-text {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      &-icon {
+        width: 14px !important;
+        height: 14px !important;
+        color: #3e3446 !important;
+        stroke-opacity: 0.6;
+      }
+
+      &-icon-active {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:first-child {
+      .filter-group-item-button {
+        padding-left: 16px;
+      }
+    }
+
+    &:last-child {
+      .filter-group-item-button {
+        padding-right: 16px;
+      }
+    }
+  }
+
+  &-item+&-item {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 50%;
+      width: 1px;
+      background-color: rgba(224, 220, 229, 0.5);
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.filter-group-item-popover-content {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    box-shadow: rgba(45, 0, 85, 0.06) 0px 1px 0px;
+    line-height: 1.4;
+    z-index: 2;
+    font-size: 12px;
+    color: rgb(43, 34, 51);
+
+    &-text {
+      font-size: inherit;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-right: 16px;
+    }
+
+    &-reset-button {
+      position: relative;
+      display: inline-block;
+      border-radius: 4px;
+      text-transform: none;
+      background-color: transparent;
+      border: 1px solid transparent;
+      line-height: 1rem;
+      box-shadow: none;
+      cursor: pointer;
+      transition: background 0.1s, border 0.1s, box-shadow 0.1s;
+      height: auto;
+      min-height: auto;
+      font-size: inherit;
+      font-weight: 400;
+      color: rgb(128, 112, 143);
+      padding: 0px 4px;
+      margin: -2px -4px;
+    }
+  }
+
+  &-input {
+    appearance: none;
+    width: calc(100% - 8px);
+    border: 1px solid rgb(240, 236, 243);
+    border-radius: 4px;
+    background: rgb(250, 249, 251);
+    font-size: 14px;
+    padding: 4px calc(7px);
+    margin: 4px;
+    margin-top: calc(5px);
+    height: 30px;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      &-text {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: rgba(45, 0, 85, 0.06) 0px -1px 0px;
+    padding: 8px 12px;
+    z-index: 2;
+
+    &-button {
+      height: 26px;
+      display: flex;
+      align-items: center;
+    }
+
+    &-exclamation {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &-icon {
+        width: 12px;
+        height: 12px;
+      }
+
+      >span {
+        font-size: 12px;
+        color: #80708f;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+      }
+    }
+  }
+
+  &-project {
+    width: 310px;
+  }
+
+  &-env {
+    width: 224px;
+
+    .filter-group-item-popover-content-footer {
+      justify-content: center;
+    }
+  }
+
+  &-date {
+    width: 256px;
+
+    .filter-group-item-popover-content-list {
+      .filter-group-item-popover-content-list-item-checked {
+        color: rgb(101, 89, 197);
+
+        &:hover {
+          background-color: rgba(101, 89, 197, 0.085);
+        }
+      }
+    }
+
+
+
+    .filter-group-item-popover-content-list-item-text-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+  }
+}

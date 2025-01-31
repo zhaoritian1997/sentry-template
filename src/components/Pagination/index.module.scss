@@ -1,0 +1,22 @@
+.pagination {
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-end;
+
+  &-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 0px;
+    align-items: center;
+    border: 1px solid rgb(224, 220, 229);
+    border-radius: 6px;
+  }
+  &-btn{
+    width: 40px;
+    height: 32px;
+  }
+  &-btn +&-btn{
+    border-radius: 0px;
+    border-left: 1px solid rgb(224, 220, 229);
+  }
+}
