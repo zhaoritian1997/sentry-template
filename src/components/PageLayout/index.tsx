@@ -7,6 +7,7 @@ import useResponsive, { configResponsive } from "@/hooks/useResponsive"
 import { isBrowser } from "@/lib/utils"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import Loading from "@/components/Loading"
+import clsx from "clsx"
 configResponsive({
   md: 1000,
 })
@@ -31,7 +32,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <SidebarProvider>
         {showSidebar && <AppSidebar />}
         <Loading loading={loading}>
-          <div className="flex-1 flex flex-col h-screen w-full overflow-x-hidden">
+          <div className={clsx("flex-1 flex flex-col h-screen w-full overflow-x-hidden",
+            showTopBar && "pt-[54px]"
+          )}>
             {showTopBar && <TopBar />}
             {children}
           </div>

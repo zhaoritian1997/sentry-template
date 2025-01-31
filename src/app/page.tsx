@@ -13,6 +13,7 @@ import Footer from "@/components/Footer";
 import { performanceScoreMockList, UserMiseryMockList } from "@/components/PerformanceWidget/mockData";
 import PieChartMock from "@/components/PerformanceWidget/PieChartMock";
 import LineChartMock from "@/components/PerformanceWidget/LineChartMock";
+import clsx from 'clsx'
 export default function Home() {
   const [performanceScoreList, setPerformanceScoreList] = useState(performanceScoreMockList)
   const [userMiseryList, setUserMiseryList] = useState(UserMiseryMockList)
@@ -60,8 +61,12 @@ export default function Home() {
               desc="Top queries by total duration"
             />
           </div>
-          <div className={styles['page-content-widgets']}
-            style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}
+          <div className={
+            clsx(
+              styles['page-content-widgets'],
+              styles['page-content-widgets-2']
+            )
+          }
           >
             <PerformanceWidget
               title={title_3}

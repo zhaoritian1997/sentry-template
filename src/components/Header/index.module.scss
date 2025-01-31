@@ -60,6 +60,9 @@
       font-size: 0.875rem;
       font-weight: 600;
       white-space: nowrap;
+      &:hover {
+        background: rgba(108, 95, 199, 0.8);
+      }
     }
 
     &-feedback {
@@ -99,5 +102,17 @@
     height: 10px;
     background-color: #fff;
     transform: rotate(45deg) translateY(-50%);
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    &-title{
+      margin-bottom: 10px;
+    }
+    &-title-container {
+      flex-direction: column;
+      justify-content: space-between;
+    }
   }
 }
