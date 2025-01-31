@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import styles from './index.module.scss'
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Tooltip, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { CollapseSvg, CheckMarkSvg } from "../svgComponents";
+
 import clsx from 'clsx'
 export interface PopoverContentItem {
   name: string,
@@ -17,7 +19,7 @@ interface PerformanceWidgetProps {
   isNew: boolean,
   desc: string,
   showViewAll: boolean,
-  
+
   chartValue?: string,
   chartNode: React.ReactNode
   popoverContentList: PopoverContentItem[]
@@ -67,9 +69,17 @@ export default function PerformanceWidget(props: PerformanceWidgetProps) {
               </PopoverContent>
             </Popover>
             {isNew && <div className={styles['performance-widget-header-title-new']}>
-              <span style={{ display: 'inline-block', maxWidth: '100%' }}>
-                <span className={styles['performance-widget-header-title-new-text']}>new</span>
-              </span>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span style={{ display: 'inline-block', maxWidth: '100%' }}>
+                    <span className={styles['performance-widget-header-title-new-text']}>new</span>
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent className={styles['new-tooltip-content']} side="right" sideOffset={10}>
+                  <p className="w-[225px]">This feature is new!Try it out and let us know what you think
+                  </p>
+                </TooltipContent>
+              </Tooltip>
             </div>}
           </div>
           <div className={styles['performance-widget-header-desc']}>

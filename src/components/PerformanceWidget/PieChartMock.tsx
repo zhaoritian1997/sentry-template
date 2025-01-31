@@ -4,10 +4,6 @@ import * as React from "react"
 import { Label, Pie, PieChart } from "recharts"
 
 import {
-  Card,
-  CardContent,
-} from "@/components/ui/card"
-import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,

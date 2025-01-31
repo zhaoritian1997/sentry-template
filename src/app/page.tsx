@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Alert from "@/components/Alert";
 import FilterGroup from "@/components/FilterGroup";
 import SearchBar from "@/components/SearchBar";
-import PerformanceWidget, { PopoverContentItem } from "@/components/PerformanceWidget";
+import PerformanceWidget from "@/components/PerformanceWidget";
 import PerformanceTable from "@/components/PerformanceTable";
 import Pagination from "@/components/Pagination";
 import Footer from "@/components/Footer";
