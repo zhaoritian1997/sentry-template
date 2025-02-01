@@ -9,7 +9,7 @@ import Image from "next/image";
 import React from "@/assets/images/reactjs.svg";
 import { ExclamationSvg, PlusSvg } from "@/components/svgComponents";
 import { clsx } from "clsx";
-import nextjsIconBas64 from "@/assets/images/nextjs.svg";
+import {nextjsIconBas64} from "@/lib/utils";
 
 const defaultProject = 'All Projects';
 
