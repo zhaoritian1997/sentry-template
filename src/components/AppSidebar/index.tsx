@@ -43,7 +43,7 @@ export function AppSidebar() {
     toggleSidebar()
   }
   return (
-    <Sidebar className={styles['app-sidebar']} collapsible="icon">
+    <Sidebar className='bg-[linear-gradient(294.17deg,_rgb(47,25,55)_35.57%,_rgb(69,38,80)_92.42%,_rgb(69,38,80)_92.42%)] text-[#9586a5] leading-none p-[12px_0px_2px]'>
       <SidebarHeader>
         <Account />
       </SidebarHeader>
@@ -169,21 +169,21 @@ export function AppSidebar() {
                       e.stopPropagation()
                       changeRoute(item)
                     }}>
-                    {isCollapse ? <Tooltip>
-                      <TooltipTrigger asChild >
-                        <a className={styles['app-sidebar-link-a']}
-                          href={item.url}>
-                          <span className={styles['app-sidebar-link-icon']} >
-                            <item.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === item.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
-                          </span>
-                          <span className={styles['app-sidebar-link-title']}>{item.title}</span>
-                        </a>
-                      </TooltipTrigger>
-                      <TooltipContent side="right" className={styles['app-sidebar-link-tooltip-content']}
-                      >
-                        <p>{item.title}</p>
-                      </TooltipContent>
-                    </Tooltip>
+                    {isCollapse ?
+                      <Tooltip>
+                        <TooltipTrigger asChild >
+                          <a className={styles['app-sidebar-link-a']}
+                            href={item.url}>
+                            <span className={styles['app-sidebar-link-icon']} >
+                              <item.icon className={styles['app-sidebar-link-icon-svg']} currentColor={currentRoute === item.title ? "rgb(255, 255, 255)" : "rgb(149, 134, 165)"} />
+                            </span>
+                            <span className={styles['app-sidebar-link-title']}>{item.title}</span>
+                          </a>
+                        </TooltipTrigger>
+                        <TooltipContent side="right" className='p-[8px_16px] bg-[#fff] text-[#3e3449] text-[12px] rounded-[6px] shadow-[0_0_4px_rgba(0,0,0,0.1)] border-[1px_solid_#e0e0e0] before:content-[""] before:absolute before:top-1/2 before:left-[-8px] before:w-[10px] before:h-[10px] before:bg-[#fff] before:transform before:-translate-y-1/2 before:rotate-45'>
+                          <p>{item.title}</p>
+                        </TooltipContent>
+                      </Tooltip>
                       : <a className={styles['app-sidebar-link-a']}
                         href={item.url}>
                         <span className={styles['app-sidebar-link-icon']} >
@@ -200,11 +200,12 @@ export function AppSidebar() {
         </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupContent>
-            <div className={clsx(styles['app-sidebar-collapse'], isCollapse && styles['app-sidebar-collapse-active'])} onClick={toggleCollapse}>
-              <div className={styles['app-sidebar-collapse-icon']}>
-                <CollapseSvg />
+            <div className='flex items-center w-full h-[30px] flex-shrink-0 cursor-pointer transition-[background_100ms] hover:bg-[rgba(255,255,255,0.085)] rounded-[6px] hover:text-white'
+              onClick={toggleCollapse}>
+              <div className={clsx('flex items-center justify-center flex-shrink-0 w-[37px] transform rotate-[-90deg]', isCollapse && 'rotate-[90deg]')}>
+                <CollapseSvg className='w-[18px] h-[18px] m-0 auto block' />
               </div>
-              <span className={styles['app-sidebar-collapse-title']}>Collapse</span>
+              <span className='ml-[10px] whitespace-nowrap opacity-1 flex-1 flex items-center overflow-hidden text-[15px]'>Collapse</span>
             </div>
           </SidebarGroupContent>
         </SidebarGroup>

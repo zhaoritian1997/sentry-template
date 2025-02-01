@@ -31,10 +31,10 @@ export default function TabList() {
         {tabs.map(tab => (
           <li tabIndex={tab.isActive ? 0 : -1} className={clsx(styles['tab-list-item'], tab.isActive && styles['tab-list-item-active'])} key={tab.name} onClick={() => handleTabClick(tab.name)}>
             <span className={styles['tab-list-item-wrapper']}>
-              <span className={styles['tab-list-item-hover']} />
-              <div className={styles['tab-list-item-div']} />
+              <span className='box-border text-[currentcolor] pointer-events-none'/>
+              <div className='absolute pointer-events-none rounded-[inherit] z-[0] transition-shadow ease-out delay-100'/>
               {tab.name}
-              <div className={styles['tab-list-item-underline']} />
+              <div className={clsx('absolute rounded-[2px] pointer-events-none bg-transparent transition-colors delay-100 ease-out w-[calc(100%-16px)] h-[3px] bottom-0 left-[50%] translate-x-[-50%]', tab.isActive && 'bg-[rgb(108,95,199)]')}/>
             </span>
           </li>
         ))}

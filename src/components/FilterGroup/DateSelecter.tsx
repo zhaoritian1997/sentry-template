@@ -1,7 +1,6 @@
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import styles from "./index.module.scss";
 import { ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { CheckMarkSvg } from "@/components/svgComponents";
@@ -44,27 +43,26 @@ export default function DateSelecter() {
   return (
     <Popover open={isDateOpen} onOpenChange={setIsDateOpen}>
       <PopoverTrigger asChild>
-        <Button variant="ghost" color="#fff" size="sm" className={styles['filter-group-item-button']}>
-          <span className={styles['filter-group-item-button-text']}>{selectedDate}</span>
-          <ChevronDown className={clsx(styles['filter-group-item-button-icon'], {
-            [styles['filter-group-item-button-icon-active']]: isDateOpen
+        <Button variant="ghost" color="#fff" size="sm" className='p-[10px_12px] h-full flex items-center gap-[4px] border-[1px_solid_transparent] overflow-hidden first:pl-[16px] last:pr-[16px]'>
+          <span className='text-[14px] font-semibold'>{selectedDate}</span>
+          <ChevronDown className={clsx('w-[14px] h-[14px] text-[#3e3446] stroke-opacity-[0.6]', {
+            'transform rotate-[180deg]': isDateOpen
           })} />
         </Button>
       </PopoverTrigger>
       <PopoverContent side="bottom" align="start"
-        className={clsx(styles['filter-group-item-popover-content'],
-         styles['filter-group-item-popover-content-date'])}>
-        <div className={styles['filter-group-item-popover-content-header']}>
-          <span className={styles['filter-group-item-popover-content-header-text']}>Filter Time Range</span>
+        className='p-0 flex flex-col w-[256px]'>
+        <div className='relative flex items-center justify-between p-[6px_12px] shadow-[rgba(45,0,85,0.06)_0px_1px_0px] line-height-[1.4] z-2 text-[12px] text-[#3e3449] font-semibold whitespace-nowrap'>
+          <span className='text-[inherit] font-semibold whitespace-nowrap mr-[16px]'>Filter Time Range</span>
         </div>
-        <Input className={styles['filter-group-item-popover-content-input']} placeholder="Custom range:2h,4d,8w..." />
-        <div className={styles['filter-group-item-popover-content-list']}>
+        <Input className='appearance-none w-[calc(100%-8px)] border-[1px_solid_rgb(240,236,243)] border-radius-[4px] bg-[rgb(250,249,251)] text-[14px] p-[4px_calc(7px)] m-[4px] mt-[calc(5px)] h-[30px]' placeholder="Custom range:2h,4d,8w..." />
+        <div className='flex flex-col gap-[8px] p-[8px]'>
           {dateList.map((item) => (
-            <div className={clsx(styles['filter-group-item-popover-content-list-item'],
-                item.checked && styles['filter-group-item-popover-content-list-item-checked']
+              <div className={clsx('flex items-center justify-between p-[4px] rounded-[4px] cursor-pointer hover:bg-[#f0f0f0]',
+                item.checked && 'text-[#6559c5] hover:bg-[rgba(101, 89, 197, 0.085)]'
               )} key={item.name} onClick={() => handleDateChange(item)}>
-              <div className={styles['filter-group-item-popover-content-list-item-text']}>
-                {item.checked ? <CheckMarkSvg className={styles['filter-group-item-popover-content-list-item-text-icon']} /> : <div className={styles['filter-group-item-popover-content-list-item-text-icon']} />}
+              <div className='flex items-center gap-[4px]'>
+                {item.checked ? <CheckMarkSvg className='w-[16px] h-[16px]' /> : <div className='w-[16px] h-[16px]' />}
                 <span>{item.name}</span>
               </div>
             </div>

@@ -1,5 +1,4 @@
 "use client"
-import styles from './page.module.scss'
 import { useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import Header from "@/components/Header";
@@ -13,7 +12,6 @@ import Footer from "@/components/Footer";
 import { performanceScoreMockList, UserMiseryMockList } from "@/components/PerformanceWidget/mockData";
 import PieChartMock from "@/components/PerformanceWidget/PieChartMock";
 import LineChartMock from "@/components/PerformanceWidget/LineChartMock";
-import clsx from 'clsx'
 export default function Home() {
   const [performanceScoreList, setPerformanceScoreList] = useState(performanceScoreMockList)
   const [userMiseryList, setUserMiseryList] = useState(UserMiseryMockList)
@@ -29,13 +27,13 @@ export default function Home() {
     <PageLayout>
       <Header />
       <main className="flex flex-col flex-1">
-        <div className={styles['page-content']}>
+        <div className="p-[16px] m-0 bg-white flex-grow rounded-[6px] min-w-[500px]  md:px-[30px] md:py-[20px]">
           <Alert />
-          <div className={styles['page-content-filter']}>
+          <div className="grid grid-rows-[auto_auto] gap-[16px] mb-[16px] sm:grid-cols-[auto_1fr] sm:grid-rows-[auto]">
             <FilterGroup />
             <SearchBar />
           </div>
-          <div className={styles['page-content-widgets']}>
+          <div className="grid grid-cols-[1fr] gap-[16px] mb-[16px] md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
             <PerformanceWidget
               title={title_1}
               isNew={true}
@@ -61,13 +59,7 @@ export default function Home() {
               desc="Top queries by total duration"
             />
           </div>
-          <div className={
-            clsx(
-              styles['page-content-widgets'],
-              styles['page-content-widgets-2']
-            )
-          }
-          >
+          <div className="grid grid-cols-[1fr] gap-[16px] mb-[16px] md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
             <PerformanceWidget
               title={title_3}
               isNew={false}

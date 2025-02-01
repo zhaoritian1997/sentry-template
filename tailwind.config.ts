@@ -66,7 +66,14 @@ export default {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		}
-  	}
+  	},
+    screens: {
+      'sm': '800px', // 小屏幕
+      'md': '992px', // 中等屏幕
+      'lg': '1000px', // 大屏幕
+      'xl': '1280px', // 超大屏幕
+      '2xl': '1536px', // 特大屏幕
+    },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
