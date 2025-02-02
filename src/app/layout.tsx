@@ -1,16 +1,5 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import Favicon from "./favicon.svg";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function RootLayout({
   children,
@@ -27,7 +16,7 @@ export default function RootLayout({
         <title>Performance — Sentry</title>
         <link rel="icon" href={Favicon.src} />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}>
+      <body className={` antialiased w-screen h-screen`}>
         {children}
       </body>
     </html>

@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from "react";
-import styles from './index.module.scss'
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table";
 import { StarFillSvg, StarOutlineSvg, UserSvg } from "@/components/svgComponents";
 import clsx from "clsx";
@@ -100,62 +99,52 @@ export default function PerformanceTable() {
     return arr
   }
   return (
-    <div className={styles['performance-table']}>
+    <div className='bg-[#fff] rounded-[6px] border-[1px] border-[#e4e0e9] mb-[16px] relative overflow-hidden z-[1]'>
       <Table>
-        <TableHeader className={styles['performance-table-header']}>
+        <TableHeader className='h-[45px] text-[#80708f] bg-[#faf9fb]'>
           <TableRow>
-            <TableHead className={clsx(styles['performance-table-header-star'],
-              styles['performance-table-header-th'])}>
+            <TableHead className='p-[8px_0_8px_20px] w-[40px] flex items-center justify-center'>
               <StarFillSvg />
             </TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-left')}>TRANSACTION</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-left')}>PROJECT</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-right')}>TPM</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-right')}>P50</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-right')}>P95</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-right')}>FAILURE RATE</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-right')}>APDEX</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th'], 'text-right')}>USERS</TableHead>
-            <TableHead className={clsx(styles['performance-table-header-th']
-              , 'text-right')}>USERS MISERY</TableHead>
+            <TableHead className='p-[0_16px] text-left'>TRANSACTION</TableHead>
+            <TableHead className='p-[0_16px] text-left'>PROJECT</TableHead>
+            <TableHead className='p-[0_16px] text-right'>TPM</TableHead>
+            <TableHead className='p-[0_16px] text-right'>P50</TableHead>
+            <TableHead className='p-[0_16px] text-right'>P95</TableHead>
+            <TableHead className='p-[0_16px] text-right'>FAILURE RATE</TableHead>
+            <TableHead className='p-[0_16px] text-right'>APDEX</TableHead>
+            <TableHead className='p-[0_16px] text-right'>USERS</TableHead>
+            <TableHead className='p-[0_16px] text-right'>USERS MISERY</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody className={styles['performance-table-body']}>
+        <TableBody>
           {datas.map((item) => (
-            <TableRow key={item.id} className={styles['performance-table-body-tr']}>
-              <TableCell className={clsx(styles['performance-table-body-td'],
-                styles['performance-table-body-star'])}
+            <TableRow key={item.id} className='whitespace-nowrap'>
+              <TableCell className='h-[43px] p-[8px_0_8px_20px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] w-[40px] flex items-center justify-center cursor-pointer'
                 onClick={() => handleStar(item.id)}>
                 {item.isStar ? <StarFillSvg /> : <StarOutlineSvg />}
               </TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'],
-                styles['performance-table-body-link'],
-                "text-left")}>{item.transaction}</TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'],
-                styles['performance-table-body-link'],
-                styles['performance-table-body-project'],
-                "text-left")}>
+              <TableCell className='h-[43px] p-[8px_16px] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-decoration-none  cursor-pointer text-left text-[#2562d4]'>
+                <span>{item.transaction}</span>
+              </TableCell>
+              <TableCell className='h-[43px] p-[8px_16px] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-decoration-none text-left flex gap-[6px] cursor-pointer  items-center text-[#2562d4]'>
                 <Image src={matchIcon(item.project)} alt='icon' width={16} height={16} />
                 <span>{item.project}</span>
               </TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'],
-                "text-right")}>{item.tpm}</TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'], "text-right")}>{item.p50}</TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'], "text-right")}>{item.p95}</TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'], "text-right")}>{item.failureRate}</TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'], "text-right")}>{item.apdex}</TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'],
-                styles['performance-table-body-users'], "text-right")}>
+              <TableCell className='h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-right'>{item.tpm}</TableCell>
+              <TableCell className='h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-right'>{item.p50}</TableCell>
+              <TableCell className='h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-right'>{item.p95}</TableCell>
+              <TableCell className='h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-right'>{item.failureRate}</TableCell>
+              <TableCell className='h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-right '>{item.apdex}</TableCell>
+              <TableCell className='h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] text-right flex items-center justify-end gap-[4px]'>
                 <span>{item.users}</span>
-                <UserSvg className={styles['performance-table-body-users-icon']} />
+                <UserSvg className='w-[14px] h-[14px]' />
               </TableCell>
-              <TableCell className={clsx(styles['performance-table-body-td'],
-                styles['performance-table-body-users-misery'],
-                "text-right")}>
+              <TableCell className="h-[43px] p-[8px_16px] text-[#3e3446] tabular-nums whitespace-nowrap overflow-hidden text-[14px] max-w-[80px] ml-auto gap-[2px] items-center text-right">
                 {createMisery(item.usersMisery).map((item, index) => (
                   <span key={index}
-                    className={clsx(styles['performance-table-body-users-misery-item'],
-                      item === 1 ? styles['performance-table-body-users-misery-item-active'] : '')} />))}
+                    className={clsx('w-[4px] h-[20px] inline-block border-radius-[0px] m-[2px]',
+                      item === 1 ? 'bg-[#444674]' : 'bg-[#e6e2e6]')} />))}
               </TableCell>
             </TableRow>
           ))}
